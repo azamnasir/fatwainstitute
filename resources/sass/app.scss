@@ -1,0 +1,74 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+@import url('https://fonts.gstatic.com');
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+header{
+  background-image : linear-gradient(#04519b,#044687 60%,#033769);
+  color : #fff;
+  min-height : 130px;
+  padding : 25px;
+}
+header form{
+  float:right;
+}
+.logo{
+  float:left;
+  width:100%
+}
+body div.container{
+  margin: 20px auto;
+}
+body div.row.justify-content-center div.col-md-8
+{
+  float: right;
+}
+body div.row.justify-content-center div.col-lg-6.col-md-6 div.card div.card-header{
+  background-image : linear-gradient(#04519b,#044687 60%,#033769);
+  color : #fff !important;
+}
+
+body header div.container div.row div.col-lg-6.col-md-6.col-sm-12.col-xs-12 form.form-inline div.col-sm-5.col-xs-12 div.checkbox.large {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 575.98px) {
+  body header div.container div.row div.col-lg-6.col-md-6.col-sm-12.col-xs-12 form.form-inline div.checkbox.small div.input-types {
+    display :none;
+  }
+}
+@media (max-width: 575.98px) {
+  body header div.container div.row div.col-lg-6.col-md-6.col-sm-12.col-xs-12 form.form-inline div.col-sm-5.col-xs-12 div.checkbox.large div.input-types {
+    display :none;
+  }
+}
+.input-types {
+  float: left;
+  margin: 0px;
+  padding: 0px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+a{
+ color: #ffffff;
+  hover:#ffffff;
+}
+.multiple-image img{
+  max-width : 100%;
+  width:100%;
+}
