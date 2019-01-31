@@ -15,6 +15,12 @@
         return view('auth/login');
     });
 
+    Route::group(['namespace' =>'general' ], function () {
+        Route::get('/privacy-policy', 'GeneralController@privacyPolicy');
+        Route::get('/contact-us', 'GeneralController@contactUs');
+        Route::get('/terms-and-services', 'GeneralController@termsServices');
+    });
+
     Auth::routes();
 
     Route::group(['middleware' => 'auth'], function ()
@@ -26,12 +32,12 @@
     });
 
     Route::group(['middleware' => 'auth'], function ()
-{
-    Route::group(['prefix' => 'mufti' , 'namespace' =>'mufti' ], function ()
     {
-        Route::get('/home', 'MuftiController@index');
-    }) ;
-});
+        Route::group(['prefix' => 'mufti' , 'namespace' =>'mufti' ], function ()
+        {
+            Route::get('/home', 'MuftiController@index');
+        }) ;
+    });
 
     Route::group(['middleware' => 'auth'], function ()
     {
@@ -40,5 +46,6 @@
                 Route::get('/home', 'UsersController@index');
             }) ;
     });
+
 
 //    Route::get('/home', 'HomeController@index')->name('home');
