@@ -19,6 +19,13 @@
         Route::get('/privacy-policy', 'GeneralController@privacyPolicy');
         Route::get('/contact-us', 'GeneralController@contactUs');
         Route::get('/terms-and-services', 'GeneralController@termsServices');
+
+    });
+
+    Route::group(['namespace' =>'Auth' ], function () {
+
+        Route::get('/login/{service}', 'LoginController@redirectToProvider');
+
     });
 
     Auth::routes();

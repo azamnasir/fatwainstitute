@@ -41,7 +41,7 @@
                             </div>
                             <div class="input-types" style="margin-left: 15px;">
                                 <label>
-                                    <a href="#"><i class="fa fa-facebook-official">  &nbsp&nbspFacebook Login</i></a>
+                                    <a href="{{url('login/facebook')}}"><i class="fa fa-facebook-official">  &nbsp&nbspFacebook Login</i></a>
                                 </label>
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                             <div class="checkbox large">
                                 <div class="input-types">
                                     <label>
-                                        <a href="#"><i class="fa fa-facebook-official">  &nbsp&nbspFacebook Login</i></a>
+                                        <a href="{{url('login/facebook')}}"><i class="fa fa-facebook-official">  &nbsp&nbspFacebook Login</i></a>
                                     </label>
                                 </div>
                             </div>

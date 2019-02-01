@@ -59,4 +59,54 @@ class LoginController extends Controller
         return $this->authenticated($request, $this->guard()->user())
             ?: redirect()->intended($this->redirectPath());
     }
+
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function redirectToProvider($service)
+    {
+        session(['userRequestData' => $service]);
+
+        return Socialite::driver($service)->redirect();
+
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback()
+    {
+        $platform = session("userRequestData");
+
+        $login_user = Socialite::driver($platform)->user();
+
+        $user = $this->userFindOrCreate($login_user);
+        Auth::login($user, true);
+
+        return redirect($this->redirectTo);
+
+    }
+
+    public function userFindOrCreate($login_user){
+
+
+        $user = User::where('provider_id',$login_user->id)->first();
+
+        if(!$user){
+            $user = new User;
+            $user->name = $login_user->getName();
+            $user->username = $login_user->getName();
+            $user->email = $login_user->getEmail();
+            $user->provider_id = $login_user->getid();
+            $user->email_verified_at = Carbon::now('Asia/Karachi');
+            $user->save();
+            $user->assignRole('user');
+        }
+
+        return $user;
+    }
 }
